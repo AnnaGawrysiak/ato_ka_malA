@@ -5,6 +5,18 @@
 
 using namespace std;
 
+string odwroc_i_dodaj_spacje( string & str );
+
+int main()
+{
+    string tekst = "Ala ma kota";
+
+    cout << odwroc_i_dodaj_spacje(tekst) << endl;
+
+
+    return 0;
+}
+
 string odwroc_i_dodaj_spacje( string & str )
 {
      vector <int> spacje;
@@ -32,14 +44,4 @@ string odwroc_i_dodaj_spacje( string & str )
     }
 
     return str;
-}
-
-int main()
-{
-    string tekst = "Ala ma kota";
-
-    cout << odwroc_i_dodaj_spacje(tekst) << endl;
-
-
-    return 0;
 }

@@ -5,25 +5,19 @@
 
 using namespace std;
 
-void szukajZnaku( string & tekst, char szukanyZnak, vector <int> &spacje_ )
+string odwroc_i_dodaj_spacje( string & str )
 {
-    size_t znalezionaPozycja = tekst.find( szukanyZnak );
+     vector <int> spacje;
+
+     char szukanyZnak = ' ';
+
+    size_t znalezionaPozycja = str.find( szukanyZnak );
 
     do
     {
-        spacje_.push_back(znalezionaPozycja);
-        znalezionaPozycja = tekst.find( szukanyZnak, znalezionaPozycja + 1 );
+        spacje.push_back(znalezionaPozycja);
+        znalezionaPozycja = str.find( szukanyZnak, znalezionaPozycja + 1 );
     } while( znalezionaPozycja != std::string::npos );
-
-}
-
-int main()
-{
-    string str = "Ala ma kota";
-
-    vector <int> spacje;
-
-    szukajZnaku(str, ' ', spacje);
 
     str.erase(remove(str.begin(), str.end(), ' '), str.end());
 
@@ -37,9 +31,15 @@ int main()
         str.insert(spacje[ i ], " ");
     }
 
-    //str1.insert(6, str2);
+    return str;
+}
 
-        cout << str << endl;
+int main()
+{
+    string tekst = "Ala ma kota";
+
+    cout << odwroc_i_dodaj_spacje(tekst) << endl;
+
 
     return 0;
 }
